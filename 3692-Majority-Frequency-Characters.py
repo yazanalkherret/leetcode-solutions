@@ -9,10 +9,13 @@ class Solution:
         # number -> char
         maxSize = 0
         res = None # Edge case 
-        for key, val in sorted(freqChars.keys()):
+        for key in sorted(freqChars.keys()):
             if len(freqChars[key]) >= maxSize:
                 maxSize = len(freqChars[key])
                 res = freqChars[key]
 
         # Convert to string
         return "".join(res)
+        
+            
+            
