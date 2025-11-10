@@ -1,3 +1,6 @@
+# Time Complexity: O(n)
+# Space Complexity: O(n)
+
 class Solution:
     def minimumDistance(self, nums: List[int]) -> int:
         indices = defaultdict(list)
