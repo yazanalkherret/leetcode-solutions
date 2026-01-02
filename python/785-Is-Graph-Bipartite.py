@@ -1,3 +1,32 @@
+# DFS
+# Time Complexity: O(V + E)
+# Space Complexity: O(V)
+
+class Solution:
+    def isBipartite(self, graph: List[List[int]]) -> bool:
+        n = len(graph)
+        colors = [-1] * n
+
+        def color_node(node, color):
+            colors[node] = color
+
+            for nei in graph[node]:
+                if colors[nei] == -1:
+                    if not color_node(nei, 0 if color else 1):
+                        return False
+                elif colors[nei] == colors[node]:
+                    return False
+
+            return True
+                    
+
+        for i in range(n):
+            if colors[i] == -1:
+                if not color_node(i, 0):
+                    return False
+
+        return True
+
 class Solution:
     def isBipartite(self, graph: List[List[int]]) -> bool:
         GA, GB, UNVISITED = 1, -1, 0
